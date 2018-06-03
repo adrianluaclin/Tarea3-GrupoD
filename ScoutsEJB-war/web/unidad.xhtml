@@ -1,0 +1,127 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:insert name="title">Secciones</ui:insert>
+    <ui:define name="content">
+
+        
+
+        <div class="content">
+            <div class="container_12">
+                <div class="grid_12">
+                    <h3>Unidad Siryu</h3>
+                </div>
+                <div class="boxes">
+                    <div class="grid_12">
+                        <figure>
+                            <!-- <div><img src="./resources/images/page1_img1.jpg" alt=""/></div> -->
+                            <div><img src="./resources/images/unidad.jpg" width="" height="360" /></div>
+                            <figcaption>
+                                
+                                <br/>
+                                Es el tiempo de la afirmación de uno mismo; el deseo de aventura se hace más 
+                                patente, se desarrolla el carácter, las actitudes y la capacidad de vivir en 
+                                grupo, enriqueciéndose personalmente.
+                                La imaginación deja paso a la sed de aventuras. El contacto directo con la Naturaleza 
+                                y las destrezas para desenvolverse en el medio natural les permiten ir más allá en la 
+                                formación de sí mismos.
+                                <br/>
+                            
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- <div class="grid_12">
+                        <img src="./resources/images/page1_img1_txt.jpg" width="800" height="360" />                        
+                    </div> -->
+                    <div class="clear"></div>
+                </div>
+                <div class="grid_8">
+                    <div id="tabs">
+                        <ul>
+                            <li><a href="#tabs-1">Eventos</a></li>
+
+                        </ul>
+                        <div class="clear"></div>
+                        <div class="tab_cont" id="tabs-1">
+                            <div class="grid_12 alpha">
+                                <div class="tour">
+                                   
+                                    <div class="extra_wrapper">
+                                        <h4>Reunión Manada – 21/04/18 </h4>
+                                        <p class="price">
+                                            <span class="txt_grande">actividad super chuli de campismo!</span>
+                                            <span>Desde 9€</span></p>
+
+                                        <h:form>                                   
+                                            <h:commandButton class="botones" value="Leer más" action="#{inicio.eventos()}"/>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid_7 omega">
+                                <div class="tour">
+                                    
+                                    <div class="extra_wrapper">
+                                        <h4>Salida de grupo 3º trimestre </h4>
+                                        <p class="price">
+                                            <span class="txt_grande">Este sábado día 5 de mayo vamos a tener un súper juego de ciudad</span>
+                                            <span>Desde 300€</span></p>
+
+                                        <h:form>
+                                            <h:commandButton  class="botones" value="Leer más" action="#{inicio.eventos()}"/> 
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>		
+                    </div>
+                </div>
+
+                <div class="grid_4">
+                    <div class="newsletter_title">BUSCAR   EVENTOS </div>
+                    <div class="n_container">
+                        <h:form id="newsletter">
+                            <div class="text1">Busca por nombre </div>                         
+                            <label class="email">
+                                <h:inputText value="#{ControlEventos.nombre}"/></label>
+                            <br></br><br></br>
+                            <div class="autenticar">
+                                <h:commandButton action="#{ControlEventos.validarNombreEV()}" value="Buscar" ></h:commandButton>
+                            </div>
+                            <p><br></br></p>
+                            <div class="text1">Busca por tipo</div>
+
+                            <label class="email"> 
+                                <h:inputText value="#{ControlEventos.tipo}"/> 
+                            </label>
+                            <br></br><br></br>
+                            <div class="autenticar">
+                                <h:commandButton action="#{ControlEventos.validarTipoEV()}" value="Buscar Evento" ></h:commandButton> 
+                            </div>
+                        </h:form>
+
+                        <ul class="list">
+                            <li><a href="#">Reporteros dicharacheros </a></li>
+                            <li><a href="#">Reunión Manada – 12/05/18 </a></li>
+                            <li><a href="#">Salida de grupo 3º trimestre </a></li>
+                            <li><a href="#">Reunión Manada – 28/04/18</a></li>
+                            <li><a href="#">Reunión Manada – 21/04/18 </a></li>
+                            <li><a href="#">Reunión Manada 7/04/18 </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div></div>
+        </div>
+
+    </ui:define>
+</ui:composition>
+
+
+

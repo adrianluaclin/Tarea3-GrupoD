@@ -1,0 +1,162 @@
+  <ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Inicio</ui:define>
+    <ui:define name="content">
+
+        <div class="container_12">
+            <div class="grid_12">
+                <div class="slider-relative">
+                    <div class="slider-block">
+                        <div class="slider">
+                            <a href="#" class="prev"></a><a href="#" class="next"></a>
+                            <ul class="items">
+                                <li><img src="./resources/images/slide.jpg" alt=""/>
+                                    <div class="banner">
+                                        <div>CONSTRUYENDO UN MUNDO MEJOR</div><br/>
+                                        <span> Scouts39 Santo Angel</span>
+                                    </div>
+                                </li>
+                                <li><img src="./resources/images/slide1.jpg" alt=""/></li>
+                                <li><img src="./resources/images/slide2.jpg" alt=""/></li>
+                                <li><img src="./resources/images/slide3.jpg" alt=""/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--=======content================================-->
+
+        <div class="content">
+            <div class="container_12">
+                <div class="grid_12">
+                    <h3></h3>
+                </div>
+
+                <div class="grid_8">
+                    <div id="tabs">
+                        <ul>
+                            <li><a href="#tabs-1">Eventos</a></li>
+                            <li><a href="#tabs-2">Noticias</a></li>
+                            <li><a href="#tabs-3">ASDE</a></li>
+
+                        </ul>
+                        <div class="clear"></div>
+
+                        <!-- ================================EVENTOS ============================= -->       
+                        <div class="tab_cont" id="tabs-1">
+
+                            <h:dataTable id="form" value="#{ControlEventos.listaEventos()}" var="ev">       
+                                <div class="extra_wrapper">
+                                    <tr>
+                                        <td class="text1 tx1"> 
+                                            
+                                            <h:outputText value="#{controlEventos.nombre}"/>
+                                        </td>
+                                    </tr>
+                                    <p></p>
+                                    <tr>
+                                        <td class="style1">
+                                           
+                                            <h:outputText value="#{controlEventos.descripcion}"/>
+                                        </td>
+                                    </tr>
+                                    <div class="clear"></div>
+                                    <h:form >                                   
+                                        <h:commandButton class="botones" value="Leer más" action="#{controlEventos.eventoInic()}"/>
+                                    </h:form>
+                                    <div class="clear "></div>
+                                </div>           
+                            </h:dataTable>  
+                        </div>
+                        
+                           <!-- ================================Noticias ============================= --> 
+                        <div class="tab_cont" id="tabs-2">
+                            <img src="./resources/images/page1_img4.jpg" alt=""></img>
+                            <div class="extra_wrapper">
+                                <div class="text1">Scouts previenen la violencia de género entre adolescentes </div>
+                                <p class="style1">
+                                    El problema de la violencia de género no consiste únicamente en los casos de amenazas 
+                                    graves,  violencia  física  o  lo
+                                    s  asesinatos  de  mujeres.
+                                </p>
+                                <h:form>                                   
+                                    <h:commandButton class="botones" value="Leer más" action="#{inicio.noticias()}"/>
+                                </h:form>
+                                <div class="clear "></div>
+                                <br/>
+                            </div>
+                            <div class="clear cl1"></div>
+                            <img src="./resources/images/page1_img5.jpg" alt=""></img>
+                            <div class="extra_wrapper">
+                                <div class="text1 tx1"> Nace la Asociación Parlamentaria Scout de España APSE </div>
+                                <p class="style1">
+                                    En  la  nueva  Asociación  estarán  representadas
+                                    la gran mayoría  de  fuerzas parlamentarias, entre ellas el PP, PSOE, 
+                                    Unidos Podemos y Ciudadanos.
+                                </p>
+                                <div class="clear"></div>
+                                <h:form>                                   
+                                    <h:commandButton class="botones" value="Leer más" action="#{inicio.noticias()}"/>
+                                </h:form>
+                                <div class="clear "></div>
+
+                            </div>
+                        </div>
+                        <!-- ================================ASDE ============================= -->
+                        <div class="tab_cont" id="tabs-3">
+                            <img src="./resources/images/page1_img4.jpg" alt=""></img>
+                            <div class="extra_wrapper">
+                                <div class="text1"> Movimiento Scout </div>
+                                <p class="style1">
+
+                                    El Movimiento Scout, fundado en el año 1907 por Baden Powell en Inglaterra, es una organización que se basa en un proyecto educativo dirigido a niños y jóvenes con el objetivo de promover su educación integral y su implicación social. El Escultismo trabaja con y para la infancia y la juventud con la ilusión de construir un mundo mejor a través del liderazgo entre iguales.                                </p>
+
+                                <a class="botones" href="https://scout.es/quienes-somos/organizacion/">Visita ASDE</a> 
+
+                                <div class="clear "></div>
+                            </div>
+                            <div class="clear cl1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid_4">
+                    <div class="newsletter_title">Inicia Sesión </div>
+                    <div class="n_container">
+                        <c:choose>
+                            <c:when test="#{empty controlAutorizacion.usuario}">
+                                <h:form id="newsletter">
+                                    <!--   <div class="success"></div> -->
+                                    <div class="text1">Usuario:</div>
+                                    <label class="email"><h:inputText id="us" value="#{login.usuario.aliasUs}"/></label>
+                                    <div class="text1">Contraseña:</div>
+                                    <label class="email"> <h:inputSecret id="contr" value="#{login.usuario.contrasenia}"/></label>
+                                    <div class="clear"></div> <div class="autenticar"> <h:commandButton value="Autenticar" action="#{login.autenticar()}"/></div>
+                                </h:form>
+                            </c:when>
+                            <c:otherwise>
+                                <p>Debe salir de la aplicación si quiere entrar como otro usuario</p>
+                            </c:otherwise>
+                        </c:choose>
+                        <h:messages/>
+                        <h:form>
+                            <ul class="list">
+                                <li><h:commandLink action="#{inicio.mochila()}" value="Cómo hacer una mochila"></h:commandLink></li>
+                                <li><h:commandLink action="#{inicio.equipamiento()}" value="Equipamiento básico de un Scout"></h:commandLink></li>
+                                <li><h:commandLink action="#{inicio.uniformes()}" value="Uniformes"></h:commandLink></li>
+                            </ul>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

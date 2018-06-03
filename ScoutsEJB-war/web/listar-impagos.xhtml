@@ -1,0 +1,65 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Listado de impagos</ui:define>
+    <ui:define name="content">
+        
+        <div class="n_container">
+                        
+           
+                <div class="text1">Listado de impagos</div>
+               
+                       <h:form id="form">
+                            <h:dataTable value="#{controlListarImpagos.listarImpagos()}" var="u"> 
+                                  
+                                    <h:column>
+                                        
+                                        <f:facet name="header">Nombre:</f:facet>
+                                        <h:outputText value="#{u.nombre}"/>
+                                   
+                                    </h:column>
+                                    
+                                    <h:column>
+                                        
+                                        <f:facet name="header">DNI:</f:facet>
+                                        <h:outputText value="#{u.DNI}"/>
+                                      
+                                    </h:column>
+                                
+                                    <h:column>
+                                        
+                                    <f:facet name="header">Seccion:</f:facet>
+                                    <h:outputText value="#{u.grupo}"/>
+                                    
+                                    </h:column>
+                                
+                                    <h:column>
+                                        
+                                    <f:facet name="header">ID de la cuota:</f:facet>
+                                    <h:outputText value="#{u.cuotas.getId()}"/>
+                                    
+                                    </h:column>
+                                
+                                    <h:column>
+                                        
+                                    <f:facet name="header">Precio:</f:facet>
+                                    <h:outputText value="#{u.cuotas.getPrecio()}"/>
+                                    
+                                    </h:column>
+                                
+                                    <h:column>
+                                        
+                                    <f:facet name="header">Fecha de la cuota:</f:facet>
+                                    <h:outputText value="#{u.cuotas.getFecha()}"/>
+                                    
+                                    </h:column>
+                            </h:dataTable>
+                                     
+                       </h:form>
+                
+       </div>
+    </ui:define>
+</ui:composition>

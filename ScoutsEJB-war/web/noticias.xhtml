@@ -1,0 +1,89 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">Noticias</ui:define>
+    <ui:define name="content">
+        <div class="container_12">
+
+        </div>
+
+        <div class="content">
+            <div class="container_12">
+                <div class="grid_12">
+                    <h3>GRUPO SCOUT 39 SANTO ANGEL - MÁLAGA</h3>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            <div class="grid_8">
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1">Noticias</a></li>
+
+                    </ul>
+                    <div class="clear"></div>
+                    <div class="tab_cont" id="tabs-1">
+                                <h:form id="form">
+                                    <h:dataTable value="#{ControlNoticias.verNot()}" var="nt"> 
+                                  
+                                    <h:column>
+                                        
+                                        <f:facet name="header">Título:</f:facet>
+                                        <h:outputText value="#{nt.nombre}"/>
+                                       
+                                        
+                    
+                                    </h:column>
+                                    
+                                    <h:column>
+                                        
+                                        <f:facet name="header">Cuerpo:</f:facet>
+                                        <h:outputText value="#{nt.texto}"/>
+                                      
+                             
+                                    </h:column>
+                                    <h:column>
+                                       <f:facet name="header">Fecha:</f:facet>
+                                       <h:outputText value="#{nt.fecha}"/>
+                                    </h:column>
+                                    </h:dataTable>
+                                     
+                                </h:form>
+
+                        
+                            </div>
+
+                            <div class="clear "></div>
+
+                        </div>		
+                    </div>
+            <div class="grid_4">
+                <div class="newsletter_title">BUSCAR   NOTICIAS </div>
+                <div class="n_container">
+                    <h:form id="newsletter">
+                        <div class="text1">Escribe el título de la noticia </div>                         
+                        <label class="email">
+                            <h:inputText value="#{controlNoticias.nombre}"/></label>
+                        <br></br><br></br>
+                        <div class="text1">Intoduce la fecha </div>                         
+                        <label class="email">
+                            <h:inputText value="#{controlNoticias.fecha}">
+                                  <f:convertDateTime pattern = "dd/mm/yyyy" />
+                            </h:inputText>
+                        </label>
+                        <br></br><br></br>
+                        <div class="autenticar">
+                            <h:commandButton action="#{controlNoticias.buscarNot()}" value="Buscar Noticia" ></h:commandButton>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </ui:define>
+</ui:composition>

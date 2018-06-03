@@ -1,0 +1,53 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Listado de usuarios</ui:define>
+    <ui:define name="content">
+        
+        <div class="n_container">
+                        
+           
+                <div class="text1">Listado de usuarios por sección</div>
+               
+                       <h:form id="form">
+                           <h:dataTable value="#{controlListarPorSeccion.listarUnidad()}" var="u"> 
+                                  
+                                    <h:column>
+                                        
+                                        <f:facet name="header">Nombre:</f:facet>
+                                        <h:outputText value="#{u.nombre}"/>
+                                   
+                                    </h:column>
+                                    
+                                    <h:column>
+                                        
+                                        <f:facet name="header">Apellidos:</f:facet>
+                                        <h:outputText value="#{u.apellidos}"/>
+                                      
+                                    </h:column>
+                                
+                                    <h:column>
+                                        
+                                    <f:facet name="header">Fecha alta:</f:facet>
+                                    <h:outputText value="#{controlListarPorSeccion.ultimoElemento(u).getFechAltaSecc()}"/>
+                                    
+                                    </h:column>
+                                
+                                    <h:column>
+                                        
+                                    <f:facet name="header">DNI:</f:facet>
+                                    <h:outputText value="#{u.DNI}"/>
+                                    
+                                    </h:column>
+                                
+                            </h:dataTable>
+                                     
+                       </h:form>
+                
+       </div>
+    </ui:define>
+</ui:composition>
+

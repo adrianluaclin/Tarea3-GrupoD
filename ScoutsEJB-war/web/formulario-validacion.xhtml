@@ -1,0 +1,101 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <!--penultima es para poder usar placeholder-->
+    <ui:define name="title">Validación Usuario</ui:define>
+    <ui:define name="content">
+        <div class="container_12">
+            <div class="newsletter_title"> Valida o elima un usuario</div>
+            <h:form id="formreg">
+                <!-->   Aqui    <-->
+                <br/>
+                <div class="text1">Nombre usuario:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.aliasUs}" /></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Contraseña:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.contrasenia}" /></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Nombre:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.nombre}"/></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Apellidos:</div>
+                <div>
+                    <label class="text1"> <h:outputText value="#{controlValidacionUsuario.user.apellidos}"/></label><br/>
+                </div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Sexo:</div>
+                <div> 
+                    <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.sexo}"/></label><br/>
+
+                </div>
+                <hr></hr>
+                <br/>
+                <div class="text1">DNI:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.DNI}" /></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Fecha de nacimiento:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.fecha_Nac}" /></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Elige la Sección correspondiente:</div>
+                <div class="text1"> 
+                    <h:selectOneMenu id="seccion" value="#{controlValidacionUsuario.secc.tipoSec}" >
+                        <f:selectItem itemLabel="clan" itemValue="#{controlValidacionUsuario.secc.tipoSec}" />
+                        <f:selectItem itemLabel="tropa" itemValue="#{controlValidacionUsuario.secc.tipoSec}" />
+                        <f:selectItem itemLabel="unidad" value="#{controlValidacionUsuario.secc.tipoSec}" />
+                        <f:selectItem itemLabel="castores" value="#{controlValidacionUsuario.secc.tipoSec}" />
+                        <f:selectItem itemLabel="manada" value="#{controlValidacionUsuario.secc.tipoSec}" />
+                    </h:selectOneMenu></div>
+                <div><h:commandButton  class="btn btn-warning" value="Inscribir en Sección" type="submit" action="#{controlValidacionUsuario.crearRegistro()}"/></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Elige el rol correspondiente:</div>
+                <div class="text1"> 
+                    <h:selectOneMenu id="rol" value="#{controlValidacionUsuario.rol}" >
+                        <f:selectItem itemLabel="scooter" value="#{controlValidacionUsuario.rol}" />
+                        <f:selectItem itemLabel="educando" value="#{controlValidacionUsuario.rol}" />
+                    </h:selectOneMenu></div>
+                <div><h:commandButton  class="btn btn-warning" value="Crear Rol" type="submit" action="#{controlValidacionUsuario.rol()}"/></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Teléfono:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.telefono}" /></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Móvil (2º Teléfono, opcional):</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.movil}"/></label></div>
+                <hr></hr>
+                <br/>
+                <div class="text1">Localidad:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.localidad}"/></label></div>
+                <br/>
+                <div class="text1">Código Postal:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.codigo_postal}"/></label></div>
+                <br/>
+                <div class="text1">Calle:</div>
+                <div> <label class="text1"><h:outputText  value="#{controlValidacionUsuario.user.calle}"/></label></div>
+                <br/>
+                <div class="text1">Provincia:</div>
+                <div> <label class="text1"><h:outputText value="#{controlValidacionUsuario.user.provincia}" /></label></div>
+                <hr></hr>
+                <br/>
+                
+                <br/>
+                <h:commandButton  class="btn btn-warning" value="Validar" type="submit" action="#{controlValidacionUsuario.validar()}"/>
+                <h:commandButton value="Rechazar" type="submit" action="#{controlAutorizacion.home()}"/>
+                <br/>
+            </h:form>
+
+        </div>      
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,27 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+                <!--penultima es para poder usar placeholder-->
+                <ui:define name="title">Éxito registro</ui:define>
+    <ui:define name="content">
+       <c:choose>
+            <c:when test="#{controlRegistro.registroOK}">
+                <div>
+                    <p>El registro se ha realizado con éxito.</p>
+                                    
+                </div>
+            </c:when>
+            <c:otherwise>
+                No tiene autorización para acceder a esta página.
+            </c:otherwise>
+
+        </c:choose>
+                               
+    </ui:define>
+</ui:composition>
+
+

@@ -1,0 +1,143 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+                <!--penultima es para poder usar placeholder-->
+    <ui:define name="title">Inscribirse</ui:define>
+    <ui:define name="content">
+       <div class="container_12">
+       <div class="newsletter_title"> Formulario de inscripción</div>
+                                <h:form id="formreg">
+                                    
+                                    <br/>
+                                    <div class="text1">Nombre usuario(Obligatorio):</div>
+                                    <div> <label class="text1"><h:inputText id="alias" value="#{controlRegistro.usuario.aliasUs}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Contraseña(Obligatorio)::</div>
+                                    <div> <label class="text1"><h:inputSecret id="contr" value="#{controlRegistro.usuario.contrasenia}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Nombre(Obligatorio)::</div>
+                                    <div> <label class="text1"><h:inputText id="nombre" value="#{controlRegistro.usuario.nombre}" required="value"/></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Apellidos(Obligatorio)::</div>
+                                    <div>
+                                        <label class="text1"> <h:inputText id="apellidos" value="#{controlRegistro.usuario.apellidos}" required="true"/></label>
+                                    </div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Fecha de nacimiento(Obligatorio):</div>
+                                    <div>
+                                        <label class="text1"> 
+                                            <h:inputText id="fechanac" value="#{controlRegistro.usuario.fecha_Nac}" p:placeholder="dd/mm/yyyy" required="true">
+                                              <f:convertDateTime pattern = "dd/mm/yyyy" />
+                                            </h:inputText>
+                                        </label>
+                                    </div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Fecha de alta(Obligatorio):</div>
+                                    <div>
+                                        <label class="text1"> 
+                                            <h:inputText id="fechaalt" value="#{controlRegistro.usuario.fecha_Alta}" p:placeholder="dd/mm/yyyy" required="true">
+                                              <f:convertDateTime pattern = "dd/mm/yyyy" />
+                                            </h:inputText>
+                                        </label>
+                                    </div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Sexo:</div>
+                                      <h:selectOneMenu id="sexo" value="#{controlRegistro.usuario.sexo}">
+                                          <f:selectItem itemLabel="masculino" value="#{controlRegistro.usuario.sexo}"/>
+                                          <f:selectItem itemLabel="femenino"  value="#{controlRegistro.usuario.sexo}"/>
+                                      </h:selectOneMenu>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">DNI(Obligatorio):</div>
+                                    <div> <label class="text1"><h:inputText id="dni" value="#{controlRegistro.usuario.DNI}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    
+                                    <div class="text1">Teléfono(Obligatorio):</div>
+                                    <div> <label class="text1"><h:inputText id="tel" value="#{controlRegistro.usuario.telefono}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Móvil (2º Teléfono, opcional):</div>
+                                    <div> <label class="text1"><h:inputText id="movil" value="#{controlRegistro.usuario.movil}" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Localidad(Opcional):</div>
+                                    <div> <label class="text1"><h:inputText id="loc" value="#{controlRegistro.usuario.localidad}" /></label></div>
+                                    <br/>
+                                    <div class="text1">Código Postal(Opcional):</div>
+                                    <div> <label class="text1"><h:inputText id="codpost" value="#{controlRegistro.usuario.codigo_postal}" /></label></div>
+                                    <br/>
+                                    <div class="text1">Calle(Opcional):</div>
+                                    <div> <label class="text1"><h:inputText id="calle" value="#{controlRegistro.usuario.calle}"  /></label></div>
+                                    <br/>
+                                    <div class="text1">Provincia(Opcional):</div>
+                                    <div> <label class="text1"><h:inputText id="prov" value="#{controlRegistro.usuario.provincia}"  /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Ámbito:</div>
+                                      <h:selectOneMenu id="ambito" value="#{controlRegistro.usuario.ambito}">
+                                          <f:selectItem itemLabel="federal" value="#{controlRegistro.usuario.ambito}"/>
+                                          <f:selectItem itemLabel="asociacion"  value="#{controlRegistro.usuario.ambito}"/>
+                                          <f:selectItem itemLabel="grupo"  value="#{controlRegistro.usuario.ambito}"/>
+                                          <f:selectItem itemLabel="provincial"  value="#{controlRegistro.usuario.ambito}"/>
+                                      </h:selectOneMenu>
+                                    <hr></hr>
+                                    <br/>
+                                    
+                                    
+                                    <div class="text1">Cargo (sólo scouters):</div>
+                                    <div> <label class="text1"><h:inputText id="cargo" value="#{controlRegistro.usuario.cargo}"/></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Responsable legal (sólo educandos):</div>
+                                    <br/>
+                                    <div class="text1">Nombre:</div>
+                                    <div> <label class="text1"><h:inputText id="non1" value="#{controlRegistro.usuario.nom_respon1}"/></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Apellidos:</div>
+                                    
+                                    <div><label class="text1"> <h:inputText id="ap1" value="#{controlRegistro.usuario.ap_respon1}"/></label></div>
+        
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">DNI:</div>
+                                    <div><label class="text1"> <h:inputText id="dni1" value="#{controlRegistro.usuario.dni_respon1}"/></label></div>
+                      
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">2º Responsable legal (opcional):</div>
+                                    <br/>
+                                    <div class="text1">Nombre:</div>
+                                    <div> <label class="text1"><h:inputText id="non2" value="#{controlRegistro.usuario.nom_respon2}"/></label></div>
+                                    
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Apellidos:</div>
+                                    <div><label class="text1"> <h:inputText id="ap2" value="#{controlRegistro.usuario.ap_respon2}"/></label></div>
+                                 
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">DNI:</div>
+                                    <div><label class="text1"> <h:inputText id="dni2" value="#{controlRegistro.usuario.dni_respon2}"/></label></div>
+                                   
+                                    <hr></hr>
+                                    <br/>
+                                    <br/>
+                                    <div> <h:commandButton value="Enviar" type="submit" action="#{controlRegistro.registrarUsuario()}"/></div>
+                                    <br/>
+                                </h:form>
+                            
+       </div>      
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,62 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+                <!--penultima es para poder usar placeholder-->
+    <ui:define name="title">Crear eventos</ui:define>
+    <ui:define name="content">
+       <div class="container_12">
+       <div class="newsletter_title"> Crear eventos</div>
+                                <h:form id="formev">
+                                   
+                                    <br/>
+                                    <div class="text1">Nombre:</div>
+                                    <div> <label class="text1"><h:inputText id="nombre" value="#{controlEventos.evento.nombreEv}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Fecha:</div>
+                                    <div> 
+                                        <label class="text1">
+                                            <h:inputText id="fecha" value="#{controlEventos.evento.fechaEv}" p:placeholder="dd/mm/yyyy" required="true"  >
+                                      
+                                              <f:convertDateTime pattern = "dd/mm/yyyy" />
+                                            </h:inputText>
+                                        </label>
+                                    </div>
+                                   
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Tipo:</div>
+                                    <div class="text1"> 
+                                        <h:selectOneMenu id="tipo" value="#{controlEventos.evento.tipoEv}">
+                                                <f:selectItem itemLabel="campamento" value="#{controlEventos.evento.tipoEv}"/>
+                                                <f:selectItem itemLabel="excursión"  value="#{controlEventos.evento.tipoEv}"/>
+                                                <f:selectItem itemLabel="educación"  value="#{controlEventos.evento.tipoEv}"/>
+                                                <f:selectItem itemLabel="salidas"    value="#{controlEventos.evento.tipoEv}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Lugar:</div>
+                                    <div> <label class="text1"><h:inputText id="lugar" value="#{controlEventos.evento.lugarEv}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Hora:</div>
+                                    <div> <label class="text1"><h:inputText id="hora" value="#{controlEventos.evento.horaEv}" required="true" /></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div class="text1">Precio(opcional)</div>
+                                    <div> <label class="text1"><h:inputText id="precio"/></label></div>
+                                    <hr></hr>
+                                    <br/>
+                                    <div> <h:commandButton value="Crear" type="submit" action="#{controlEventos.crearEvento()}"/></div>
+                                    <br/>
+                                </h:form>
+                            
+       </div>      
+    </ui:define>
+</ui:composition>
+
